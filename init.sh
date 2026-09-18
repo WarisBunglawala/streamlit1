@@ -1,13 +1,8 @@
 #!/bin/sh
-echo "[INIT] $(date -u +%Y-%m-%dT%H:%M:%SZ) - init.sh started (PID $$)"
-echo "[INIT] $(date -u +%Y-%m-%dT%H:%M:%SZ) - sleeping 900s to simulate a hung/slow startup before app is launched"
+echo "[INIT] $(date -u +%Y-%m-%dT%H:%M:%SZ) - init.sh started"
 
-SLEEP_SECONDS=900
-i=0
-while [ "$i" -lt "$SLEEP_SECONDS" ]; do
-  sleep 60
-  i=$((i + 60))
-  echo "[INIT] $(date -u +%Y-%m-%dT%H:%M:%SZ) - still sleeping, ${i}s elapsed of ${SLEEP_SECONDS}s"
-done
+# Nothing to do: this app needs no setup beyond requirements.txt, which the
+# runner installs. Kept as a no-op so any deploy config still pointing at this
+# script continues to work.
 
 echo "[INIT] $(date -u +%Y-%m-%dT%H:%M:%SZ) - init.sh finished, handing off to app start"
